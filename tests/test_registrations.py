@@ -61,7 +61,7 @@ class TestRegistration(TestBase):
 
         self.go_to_registration_page(wait)
 
-        self.registation_new_user(wait, name=original_name, email=original_email, password=original_password)
+        self.registration_new_user(wait, name=original_name, email=original_email, password=original_password)
         driver.refresh()
         self.check_registration_new_user(
             wait, name=original_name, email=original_email, password=original_password)

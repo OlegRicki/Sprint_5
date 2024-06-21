@@ -1,12 +1,13 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from conftest import driver
-from tests.test_base import TestBase
+# from tests.test_base import TestBase
 from constants import Constants
 from locators.locators import (
     LocatorsAuthorizationPage,
     MainPage, RegistrationPage,
 )
+from tests.test_base import TestBase
 
 
 class TestAuthorization(TestBase):
