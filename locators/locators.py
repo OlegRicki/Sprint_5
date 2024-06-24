@@ -31,6 +31,7 @@ class MainPage:
     BUNS_BUTTON = (By.XPATH, '//span[text()="Булки"]/..')
     SAUCES_BUTTON = (By.XPATH, '//span[text()="Соусы"]/..')
     FILLING_BUTTON = (By.XPATH, '//span[text()="Начинки"]/..')
+    BUTTON_CHECKOUT = (By.XPATH, '//button[text()="Оформить заказ"]')
 
 
 class SettingsProfilePage:
