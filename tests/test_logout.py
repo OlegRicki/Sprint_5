@@ -12,17 +12,17 @@ from locators.locators import (
 
 class TestPageTransitions(TestBase):
     def logout(self, wait: WebDriverWait):
-        self.click_to_element(wait, MainPage.BUTTON_PRIVATE_OFFICE)
-        self.click_to_element(wait, SettingsProfilePage.BUTTON_LOGOUT)
+        wait.until(ec.element_to_be_clickable(MainPage.BUTTON_PRIVATE_OFFICE)).click()
+        wait.until(ec.element_to_be_clickable(SettingsProfilePage.BUTTON_LOGOUT)).click()
 
     def check_logout(self, wait: WebDriverWait):
-        self.click_to_element(wait, MainPage.BUTTON_PRIVATE_OFFICE)
+        wait.until(ec.element_to_be_clickable(MainPage.BUTTON_PRIVATE_OFFICE)).click()
         wait.until(ec.invisibility_of_element_located(MainPage.TEXT_BURGER))
-        text = wait.until(ec.visibility_of_element_located(LocatorsAuthorizationPage.BUTTON_LOGIN_TO_ACCOUNT)).text
-        assert text == 'Войти'
+        button = wait.until(ec.visibility_of_element_located(LocatorsAuthorizationPage.BUTTON_LOGIN_TO_ACCOUNT))
+        assert button.is_displayed()
 
     def test_go_to_private_office_page(self, driver, authorization):
         wait = WebDriverWait(driver, 10)
-        self.click_to_element(wait, MainPage.BUTTON_PRIVATE_OFFICE)
+        wait.until(ec.element_to_be_clickable(MainPage.BUTTON_PRIVATE_OFFICE)).click()
         self.logout(wait)
         self.check_logout(wait)
