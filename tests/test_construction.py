@@ -8,7 +8,6 @@ from locators.locators import (MainPage)
 
 class TestConstruction(TestBase):
 
-
     def test_open_buns_sections(self, driver, authorization):
         wait = WebDriverWait(driver, 10)
         wait.until(ec.element_to_be_clickable(MainPage.SAUCES_BUTTON)).click()
@@ -27,4 +26,3 @@ class TestConstruction(TestBase):
         wait.until(ec.element_to_be_clickable(MainPage.FILLING_BUTTON)).click()
         text = wait.until(ec.visibility_of_element_located(MainPage.FILLING_BUTTON)).get_attribute('class')
         assert 'tab_tab_type_current' in text
-
